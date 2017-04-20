@@ -24884,7 +24884,7 @@
 	    Link = _require.Link,
 	    IndexLink = _require.IndexLink;
 
-	var Nav = function Nav() {
+	var Nav = function Nav(props) {
 	  return React.createElement(
 	    'div',
 	    null,
@@ -25031,29 +25031,35 @@
 
 	var React = __webpack_require__(1);
 
-	var WeatherMessage = React.createClass({
-	  displayName: 'WeatherMessage',
+	var WeatherMessage = function WeatherMessage(_ref) {
+	  var temp = _ref.temp,
+	      location = _ref.location;
 
-	  render: function render() {
-	    var _props = this.props,
-	        temp = _props.temp,
-	        location = _props.location;
-
-	    return React.createElement(
-	      'div',
+	  return React.createElement(
+	    'div',
+	    null,
+	    React.createElement(
+	      'p',
 	      null,
-	      React.createElement(
-	        'p',
-	        null,
-	        'It\'s ',
-	        temp,
-	        ' in ',
-	        location,
-	        '!'
-	      )
-	    );
-	  }
-	});
+	      'It\'s ',
+	      temp,
+	      ' in ',
+	      location,
+	      '!'
+	    )
+	  );
+	};
+
+	// var WeatherMessage = React.createClass({
+	//   render: function() {
+	//     var {temp, location} = this.props;
+	//     return(
+	//       <div>
+	//         <p>It's {temp} in {location}!</p>
+	//       </div>
+	//     )
+	//   }
+	// });
 
 	module.exports = WeatherMessage;
 

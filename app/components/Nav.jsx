@@ -1,7 +1,7 @@
 var React = require('react');
 var { Link, IndexLink } = require('react-router');
 
-var Nav = () => {
+var Nav = (props) => {
   return (
     <div>
       <h2>Nav component</h2>
