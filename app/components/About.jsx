@@ -1,20 +1,18 @@
 var React = require('react');
 
-// var About = React.createClass({
-//   render: function () {
-//     return (
-//       <h3>About component</h3>
-//     )
-//   }
-// });
-
-// Refactor stateless functional component
-
 var About = (props) => {
   return (
   <div>
-    <h3>About</h3>
-    <p>This is a weather app</p>
+    <h1 className="text-center">About</h1>
+    <p>This was an app created to learn React. Here's some info about this app:</p>
+    <ul>
+      <li>
+        This was created as a project for <a href="https://www.udemy.com">this class</a>
+      </li>
+      <li>
+        <a href="https://github.com/webbjordy">My GitHub profile</a>
+      </li>
+    </ul>
   </div>
 
   )

@@ -28731,33 +28731,46 @@
 /* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(8);
 
-	// var About = React.createClass({
-	//   render: function () {
-	//     return (
-	//       <h3>About component</h3>
-	//     )
-	//   }
-	// });
-
-	// Refactor stateless functional component
-
 	var About = function About(props) {
 	  return React.createElement(
-	    'div',
+	    "div",
 	    null,
 	    React.createElement(
-	      'h3',
-	      null,
-	      'About'
+	      "h1",
+	      { className: "text-center" },
+	      "About"
 	    ),
 	    React.createElement(
-	      'p',
+	      "p",
 	      null,
-	      'This is a weather app'
+	      "This was an app created to learn React. Here's some info about this app:"
+	    ),
+	    React.createElement(
+	      "ul",
+	      null,
+	      React.createElement(
+	        "li",
+	        null,
+	        "This was created as a project for ",
+	        React.createElement(
+	          "a",
+	          { href: "https://www.udemy.com" },
+	          "this class"
+	        )
+	      ),
+	      React.createElement(
+	        "li",
+	        null,
+	        React.createElement(
+	          "a",
+	          { href: "https://github.com/webbjordy" },
+	          "My GitHub profile"
+	        )
+	      )
 	    )
 	  );
 	};
@@ -28787,7 +28800,7 @@
 	    React.createElement(
 	      'p',
 	      null,
-	      'Here are a few examples to try'
+	      'Here are a few examples to try:'
 	    ),
 	    React.createElement(
 	      'ol',
