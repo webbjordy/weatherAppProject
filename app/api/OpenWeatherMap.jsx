@@ -9,12 +9,12 @@ module.exports = {
 
     return axios.get(requestUrl).then(function (res) {
       if (res.data.cod && res.data.message) {
-        throw new Error(res.data.message);
+        throw new Error("This isn't the weather you're looking for :(");
       } else {
         return res.data.main.temp;
       }
     }, function (res) {
-      throw new Error(res.data.message);
+      throw new Error("This isn't the weather you're looking for :(");
     })
   }
 }
