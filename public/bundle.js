@@ -24954,7 +24954,14 @@
 
 	  onSearch: function onSearch(e) {
 	    e.preventDefault();
-	    alert('coming soon!');
+
+	    var location = this.refs.search.value;
+	    var encodedLocation = encodeURIComponent(location);
+
+	    if (location.length > 0) {
+	      this.refs.search.value = '';
+	      window.location.hash = '#/?location=' + encodedLocation;
+	    }
 	  },
 	  render: function render() {
 	    return React.createElement(
@@ -24984,7 +24991,7 @@
 	            'li',
 	            null,
 	            React.createElement(
-	              IndexLink,
+	              Link,
 	              { to: '/about', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
 	              'About'
 	            )
@@ -24993,7 +25000,7 @@
 	            'li',
 	            null,
 	            React.createElement(
-	              IndexLink,
+	              Link,
 	              { to: '/examples', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
 	              'Examples'
 	            )
@@ -25012,12 +25019,12 @@
 	            React.createElement(
 	              'li',
 	              null,
-	              React.createElement('input', { type: 'search', placeholder: 'Search weather by city' })
+	              React.createElement('input', { type: 'search', placeholder: 'Search weather by city', ref: 'search' })
 	            ),
 	            React.createElement(
 	              'li',
 	              null,
-	              React.createElement('input', { type: 'submit', className: 'button', value: 'Get weather' })
+	              React.createElement('input', { type: 'submit', className: 'button', value: 'Get Weather' })
 	            )
 	          )
 	        )
@@ -25053,7 +25060,9 @@
 
 	    this.setState({
 	      isLoading: true,
-	      errorMessage: undefined
+	      errorMessage: undefined,
+	      location: undefined,
+	      temp: undefined
 	    });
 
 	    OpenWeatherMap.getTemp(location).then(function (temp) {
@@ -25068,6 +25077,22 @@
 	        errorMessage: e.message
 	      });
 	    });
+	  },
+	  componentDidMount: function componentDidMount() {
+	    var location = this.props.location.query.location;
+
+	    if (location && location.length > 0) {
+	      this.handleSearch(location);
+	      window.location.hash = '#/';
+	    }
+	  },
+	  componentWillReceiveProps: function componentWillReceiveProps(newProps) {
+	    var location = newProps.location.query.location;
+
+	    if (location && location.length > 0) {
+	      this.handleSearch(location);
+	      window.location.hash = '#/';
+	    }
 	  },
 	  render: function render() {
 	    var _state = this.state,
@@ -29290,7 +29315,7 @@
 
 
 	// module
-	exports.push([module.id, ".page-title {\n  margin-top: 12.5rem;\n  margin-bottom: 12.5rem; }\n\ninput[type=search] {\n  box-shadow: none; }\n", ""]);
+	exports.push([module.id, ".page-title {\n  margin-top: 2.5rem;\n  margin-bottom: 2.5rem;\n  color: #555; }\n\ninput[type=search] {\n  box-shadow: none; }\n", ""]);
 
 	// exports
 
